@@ -50,6 +50,7 @@ const getDevConfig = ({}) => {
               use: {
                 loader: 'babel-loader',
                 options: {
+                  configFile: path.resolve(__dirname, 'babel.config.js'),
                   cacheDirectory: true,
                   cacheCompression: false,
                   compact: false,
