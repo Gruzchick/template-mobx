@@ -8,7 +8,6 @@
     "docker": "docker-compose up",
     "start": "NODE_ENV=production webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack-configs/webpack.prod.js",
-    "serve": "node server.js",
     "analize": "webpack-bundle-analyzer ./dist/stats.json",
     "eslint": "eslint ./src/**/*.{ts,tsx} --config ./.eslintrc.js",
     "eslint:fix": "eslint ./src/**/*.{ts,tsx} --config ./.eslintrc.js --fix",
