@@ -1,38 +1,38 @@
 declare namespace NodeJS {
-  interface ProcessEnv {
+  interface ProcessEnvironment {
     readonly NODE_ENV: 'development' | 'production' | 'test';
     readonly PUBLIC_URL: string;
   }
 }
 
 declare module '*.bmp' {
-  const src: string;
-  export default src;
+  const source: string;
+  export default source;
 }
 
 declare module '*.gif' {
-  const src: string;
-  export default src;
+  const source: string;
+  export default source;
 }
 
 declare module '*.jpg' {
-  const src: string;
-  export default src;
+  const source: string;
+  export default source;
 }
 
 declare module '*.jpeg' {
-  const src: string;
-  export default src;
+  const source: string;
+  export default source;
 }
 
 declare module '*.png' {
-  const src: string;
-  export default src;
+  const source: string;
+  export default source;
 }
 
 declare module '*.webp' {
-  const src: string;
-  export default src;
+  const source: string;
+  export default source;
 }
 
 declare module '*.svg' {
@@ -42,8 +42,8 @@ declare module '*.svg' {
     React.SVGProps<SVGSVGElement> & { title?: string }
   >;
 
-  const src: string;
-  export default src;
+  const source: string;
+  export default source;
 }
 
 declare module '*.module.css' {
@@ -67,6 +67,6 @@ declare module 'axios/lib/helpers/buildURL' {
 }
 
 declare module '*.ttf' {
-  const src: string;
-  export default src;
+  const source: string;
+  export default source;
 }

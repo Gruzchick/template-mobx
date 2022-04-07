@@ -5,8 +5,8 @@ import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { hot } from 'react-hot-loader/root';
 
-import { appTheme } from './common/styles/appTheme';
-import { globalCSS } from './common/styles/globalCSS';
+import { appTheme } from './common/styles/app-theme';
+import { globalCSS } from './common/styles/global-css';
 import { MainPage } from './pages/main-page';
 
 const App = hot(() => {
@@ -20,4 +20,4 @@ const App = hot(() => {
   );
 });
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.querySelector('#root'));

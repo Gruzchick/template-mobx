@@ -1,1 +1,1 @@
-export { robotoFont } from './robotoFont';
+export { robotoFont } from './roboto-font';

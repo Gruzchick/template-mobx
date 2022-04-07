@@ -1,2 +1,3 @@
-webpack-configs
-server.js
+*.*
+configs
+!src/**/*.*

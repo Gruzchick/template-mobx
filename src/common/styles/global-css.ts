@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 import { robotoFont } from './fonts';
-import { resetCSS } from './resetCSS';
+import { resetCSS } from './reset-css';
 
 export const globalCSS = (_) => css`
   ${robotoFont}
