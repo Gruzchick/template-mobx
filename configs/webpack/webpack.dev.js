@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const getStyleLoaders = require('./get-style-loaders');
 const getCSSModuleLocalIdent = require('./get-cssmodule-local-ident');
@@ -14,7 +15,6 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
-
 
 const getDevConfig = ({}) => {
   return {
@@ -143,12 +143,19 @@ const getDevConfig = ({}) => {
         template: path.resolve(appDirectory, 'public/index.html'),
       }),
       new CleanWebpackPlugin(),
-    new ForkTsCheckerWebpackPlugin({
-      async: true,
-      formatter: 'basic',
-    }),
+      new ForkTsCheckerWebpackPlugin({
+        async: true,
+        formatter: 'basic',
+      }),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      }),
+      new CircularDependencyPlugin({
+        exclude: /node_modules/,
+        // add errors to webpack instead of warnings
+        failOnError: true,
+        // set the current working directory for displaying module paths
+        cwd: process.cwd(),
       }),
     ],
     devServer: {
@@ -160,7 +167,7 @@ const getDevConfig = ({}) => {
         overlay: { errors: true, warnings: false },
       },
     },
-  }
+  };
 };
 
 module.exports = getDevConfig;
