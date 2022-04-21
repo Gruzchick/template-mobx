@@ -16,7 +16,7 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
-const getDevConfig = ({}) => {
+const getDevConfig = () => {
   return {
     mode: process.env.NODE_ENV,
     context: appDirectory,
@@ -32,12 +32,9 @@ const getDevConfig = ({}) => {
     },
     resolve: {
       extensions: ['.js', '.ts', '.tsx', '.json'],
+      modules: ['src', 'node_modules'],
       alias: {
         'react-dom': '@hot-loader/react-dom',
-        // https://github.com/welldone-software/why-did-you-render/issues/85
-        'react-redux': 'react-redux/lib',
-        'react-router': 'react-router/umd/react-router.js',
-        'react-query': 'react-query/dist/react-query.production.min.js',
       },
     },
     module: {
@@ -164,7 +161,7 @@ const getDevConfig = ({}) => {
       host: '0.0.0.0',
       historyApiFallback: true,
       client: {
-        overlay: { errors: true, warnings: false },
+        overlay: { errors: false, warnings: false },
       },
     },
   };

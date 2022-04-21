@@ -15,5 +15,25 @@ module.exports = {
     '@babel/proposal-class-properties',
     '@babel/proposal-object-rest-spread',
     '@babel/plugin-proposal-optional-chaining',
+    [
+      '@emotion',
+      {
+        autoLabel: 'dev-only',
+        importMap: {
+          '@mui/system': {
+            styled: {
+              canonicalImport: ['@emotion/styled', 'default'],
+              styledBaseImport: ['@mui/system', 'styled'],
+            },
+          },
+          '@mui/material/styles': {
+            styled: {
+              canonicalImport: ['@emotion/styled', 'default'],
+              styledBaseImport: ['@mui/material/styles', 'styled'],
+            },
+          },
+        },
+      },
+    ],
   ],
 };

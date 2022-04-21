@@ -6,11 +6,12 @@ module.exports = {
       {
         groups: [
           ['^\\u0000'],
-          ['^@?\\w'],
-          ['^(Common|Assets|Store|Pages|Router)'],
-          ['^'],
+          ['^(\\w|@)'],
+          ['^@mui'],
+          ['^(services|common)'],
           ['^\\.'],
           ['\\.scss$'],
+          ['^\\./styled$'],
         ],
       },
     ],
