@@ -5,4 +5,13 @@ module.exports = {
       version: 'detect',
     },
   },
+  rules: {
+    "react/self-closing-comp": [
+      "error",
+      {
+        component: true,
+        html: true,
+      },
+    ],
+  }
 };

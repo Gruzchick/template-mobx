@@ -13,8 +13,9 @@ module.exports = {
     './unicorn',
     './jest',
     './testing-library',
-    './jsdoc',
+//    './jsdoc',
     './simple-import-sort',
     './prettier', // prettier should be last in "extends" list
   ],
+  ignorePatterns: ["*.d.ts"],
 };
