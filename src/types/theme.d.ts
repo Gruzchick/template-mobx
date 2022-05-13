@@ -1,4 +1,5 @@
-import { Theme, ThemeOptions } from '@mui/material/styles';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { Theme, ThemeOptions } from '@mui/material/styles';
 
 /** @se {@link https://mui.com/material-ui/customization/theming/#custom-variables} */
 declare module '@mui/material/styles' {

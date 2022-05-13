@@ -1,1 +1,1 @@
-export * from './app-layout-header';
+export { AppLayoutHeader } from './app-layout-header';
