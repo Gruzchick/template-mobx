@@ -5,7 +5,7 @@ module.exports = {
     [
       '@emotion/babel-preset-css-prop',
       {
-        labelFormat: '__[dirname]__-[local]',
+        labelFormat: '__[dirname]__[local]',
         sourceMap: true,
       },
     ],
@@ -19,6 +19,7 @@ module.exports = {
       '@emotion',
       {
         autoLabel: 'dev-only',
+        labelFormat: '__[dirname]__[local]',
         importMap: {
           '@mui/system': {
             styled: {

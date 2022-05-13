@@ -1,4 +1,4 @@
-import { Components } from '@mui/material/styles/components';
+import type { Components } from '@mui/material/styles/components';
 
 import { muiCssBaseline } from './mui-css-baseline';
 

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-import { Components } from '@mui/material/styles/components';
+import type { Components } from '@mui/material/styles/components';
 
 import { scrollbarBgcLight, thumbBgcLight } from '../theme-constants';
 
