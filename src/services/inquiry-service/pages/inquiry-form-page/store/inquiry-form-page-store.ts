@@ -4,6 +4,7 @@ import { accountsApi } from 'common/api/dictionaries/accounts-api';
 import { organizationsApi } from 'common/api/dictionaries/organizations-api';
 import type { IAccount } from 'common/types/models/account';
 import type { IOrganization } from 'common/types/models/organization';
+
 import { inquiryServiceApi } from 'services/inquiry-service/api/inquiry-service-api';
 import type { ICommissionAccountsResponseDto } from 'services/inquiry-service/types/dtos/commission-accounts-response-dto';
 

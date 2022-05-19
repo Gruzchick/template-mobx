@@ -33,49 +33,47 @@ export const InquiryFormView: FC<InquiryFormViewProps> = observer(({ pageStore }
   }, [accounts]);
 
   return (
-    <>
-      <S.Wrapper>
-        <S.FormRow container>
-          <Grid item md={6}>
-            <BindedTextField name={INQUIRY_FORM_FIELD_NAMES.TEXT_FIELD} />
-          </Grid>
-        </S.FormRow>
-        <S.FormRow container>
-          <Grid item md={6}>
-            <BindedSelect
-              name={INQUIRY_FORM_FIELD_NAMES.ORGANIZATION}
-              selectOptions={organizationOptions}
-            />
-          </Grid>
-        </S.FormRow>
-        <S.FormRow container>
-          <Grid item md={6}>
-            <BindedSelect
-              name={INQUIRY_FORM_FIELD_NAMES.ACCOUNTS}
-              formControlProps={{
-                disabled: form.values().organization === '',
-                required: true,
-              }}
-              loading={accountsFetching}
-              selectOptions={accountOptions}
-            />
-          </Grid>
-        </S.FormRow>
-        <S.FormRow container>
-          <Grid item md={6}>
-            <BindedSelect
-              selectOptions={commissionAccountOptions}
-              name={INQUIRY_FORM_FIELD_NAMES.COMMISSION_ACCOUNTS}
-            />
-          </Grid>
-        </S.FormRow>
-        <S.FormRow container>
-          <Grid item md={6}>
-            <Button variant={'contained'}>Запросить справку</Button>
-          </Grid>
-        </S.FormRow>
-      </S.Wrapper>
-    </>
+    <S.Wrapper>
+      <S.FormRow container>
+        <Grid item md={6}>
+          <BindedTextField name={INQUIRY_FORM_FIELD_NAMES.TEXT_FIELD} />
+        </Grid>
+      </S.FormRow>
+      <S.FormRow container>
+        <Grid item md={6}>
+          <BindedSelect
+            name={INQUIRY_FORM_FIELD_NAMES.ORGANIZATION}
+            selectOptions={organizationOptions}
+          />
+        </Grid>
+      </S.FormRow>
+      <S.FormRow container>
+        <Grid item md={6}>
+          <BindedSelect
+            name={INQUIRY_FORM_FIELD_NAMES.ACCOUNTS}
+            formControlProps={{
+              disabled: form.values().organization === '',
+              required: true,
+            }}
+            loading={accountsFetching}
+            selectOptions={accountOptions}
+          />
+        </Grid>
+      </S.FormRow>
+      <S.FormRow container>
+        <Grid item md={6}>
+          <BindedSelect
+            selectOptions={commissionAccountOptions}
+            name={INQUIRY_FORM_FIELD_NAMES.COMMISSION_ACCOUNTS}
+          />
+        </Grid>
+      </S.FormRow>
+      <S.FormRow container>
+        <Grid item md={6}>
+          <Button variant={'contained'}>Запросить справку</Button>
+        </Grid>
+      </S.FormRow>
+    </S.Wrapper>
   );
 });
 

@@ -7,6 +7,10 @@ import { scrollbarBgcLight, thumbBgcLight } from '../theme-constants';
 /** @see {@link https://mui.com/material-ui/customization/how-to-customize/#OverrideCssBaseline.tsx} */
 export const muiCssBaseline: Components['MuiCssBaseline'] = {
   styleOverrides: css`
+    #root {
+      background-color: #f7f8fb;
+    }
+
     * {
       scrollbar-color: ${thumbBgcLight} ${scrollbarBgcLight};
       scrollbar-width: thin;

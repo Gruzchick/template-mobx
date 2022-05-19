@@ -2,10 +2,13 @@ import MobxReactFormDevTools from 'mobx-react-form-devtools';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 
-import { AppLayout } from 'common/components/app-layout';
+import { AppLayoutContent } from 'common/components/app-layout';
 import { FormProvider } from 'common/components/form-provider';
+import { useGlobalLoader } from 'common/components/global-loader/use-global-loader';
+import { TopLine } from 'common/components/top-line/top-line';
 
 import { InquiryFormView } from './components/inquiry-form-view';
+import { BREADCRUMBS_CONFIG } from './constants';
 import { InquiryFormPageStore } from './store/inquiry-form-page-store';
 
 const pageStore = new InquiryFormPageStore();
@@ -24,15 +27,18 @@ export const InquiryFormPage = observer(() => {
     void pageStore.init();
   }, []);
 
-  const isLoading = organizationsFetching || commissionAccountsFetching;
+  useGlobalLoader(organizationsFetching || commissionAccountsFetching);
 
   return (
-    <AppLayout loading={isLoading}>
-      <FormProvider form={form}>
-        <InquiryFormView pageStore={pageStore} />
-      </FormProvider>
+    <>
+      <AppLayoutContent>
+        <TopLine breadcrumbsConfig={BREADCRUMBS_CONFIG} />
+        <FormProvider form={form}>
+          <InquiryFormView pageStore={pageStore} />
+        </FormProvider>
+      </AppLayoutContent>
       <MobxReactFormDevTools.UI />
-    </AppLayout>
+    </>
   );
 });
 

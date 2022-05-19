@@ -5,6 +5,8 @@ module.exports = {
       'error',
       {
         replacements: {
+          ref: false,
+          prop: false,
           props: false,
           env: false,
         }

@@ -13,5 +13,8 @@ module.exports = {
         html: true,
       },
     ],
-  }
+    "react/jsx-fragments": "error",
+    "react/jsx-no-useless-fragment": "error",
+  },
+
 };
