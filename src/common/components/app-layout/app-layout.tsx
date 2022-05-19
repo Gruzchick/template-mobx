@@ -2,20 +2,17 @@ import { observer } from 'mobx-react-lite';
 import type { FC } from 'react';
 import React from 'react';
 
+import { Container } from '@mui/material';
+
 import { AppLayoutHeader } from '../app-layout-header';
 import { AppLayoutSidebarMenu } from '../app-layout-sidebar-menu';
-import { Loader } from '../loader';
 
 import * as S from './styled';
 
-export interface IAppLayoutProps {
-  loading?: boolean;
-}
-
-export const AppLayout: FC<IAppLayoutProps> = observer(({ children, loading }) => {
+export const AppLayout: FC = observer(({ children }) => {
   return (
-    <>
-      <S.Wrapper maxWidth={'xl'}>
+    <Container maxWidth={'xl'}>
+      <S.Wrapper>
         <S.Header>
           <AppLayoutHeader />
         </S.Header>
@@ -23,11 +20,10 @@ export const AppLayout: FC<IAppLayoutProps> = observer(({ children, loading }) =
           <S.Sidebar>
             <AppLayoutSidebarMenu />
           </S.Sidebar>
-          <S.Content>{children}</S.Content>
+          <S.ContentArea>{children}</S.ContentArea>
         </S.Body>
       </S.Wrapper>
-      {loading && <Loader />}
-    </>
+    </Container>
   );
 });
 

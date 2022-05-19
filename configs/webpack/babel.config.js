@@ -37,4 +37,7 @@ module.exports = {
       },
     ],
   ],
+  "assumptions": {
+    "setPublicClassFields": false
+  }
 };
