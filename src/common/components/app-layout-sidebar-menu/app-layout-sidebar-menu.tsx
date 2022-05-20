@@ -35,6 +35,7 @@ export const AppLayoutSidebarMenu: FC = observer(() => {
           >
             <Icon />
             <Typography variant={'caption'}>{label}</Typography>
+            {isActive && <S.ActiveMark color={'secondary'} />}
           </S.MenuItemWrapper>
         );
       })}

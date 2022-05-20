@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
-export const Wrapper = styled('div')`
-  height: 64px;
-  border: 1px solid black;
-`;
+export const Logo = styled(Typography)`
+  cursor: pointer;
+` as typeof Typography;

@@ -18,7 +18,7 @@
     "slint:fix": "stylelint './src/**/*.{scss,css,ts,tsx}' --fix",
     "checktypes": "tsc --noEmit",
     "check:code": "yarn eslint; yarn slint; yarn prettier",
-    "fix": "yarn eslint:fix ; yarn slint:fix ; yarn prettier:fix"
+    "fix": "yarn eslint:fix ; yarn slint:fix"
   },
   "lint-staged": {
     "./src/**/*.{ts,tsx}": [

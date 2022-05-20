@@ -1,7 +1,7 @@
 import 'react-hot-loader';
 
 import { observer } from 'mobx-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Routes } from 'react-router';
 
@@ -10,7 +10,9 @@ import { ThemeProvider } from '@mui/material/styles';
 
 import { AppLayout } from 'common/components/app-layout';
 import { GlobalLoader } from 'common/components/global-loader';
+import { useGlobalLoader } from 'common/components/global-loader/use-global-loader';
 import { AppBrowserRouter, history } from 'common/router';
+import { authStore } from 'common/stores/auth-store';
 import { theme } from 'common/styles/theme';
 
 import { inquiryServiceRoutes } from 'services/inquiry-service/inquiry-service-routes';
@@ -18,15 +20,23 @@ import { mainServiceRoutes } from 'services/main-page-service/main-service-route
 import { statisticsServiceRoutes } from 'services/statistics-service/statistics-service-routes';
 
 const App = observer(() => {
+  useGlobalLoader(authStore.tokensFetching);
+
+  useEffect(() => {
+    void authStore.logIn({ email: '', password: '' }); // TODO: Сделать страницу авторизации
+  }, []);
+
   return (
     <AppBrowserRouter history={history}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <AppLayout>
-          <Routes>
-            {[...mainServiceRoutes, ...inquiryServiceRoutes, ...statisticsServiceRoutes]}
-          </Routes>
-        </AppLayout>
+        {authStore.isAuthorized && (
+          <AppLayout>
+            <Routes>
+              {[...mainServiceRoutes, ...inquiryServiceRoutes, ...statisticsServiceRoutes]}
+            </Routes>
+          </AppLayout>
+        )}
         <GlobalLoader />
       </ThemeProvider>
     </AppBrowserRouter>

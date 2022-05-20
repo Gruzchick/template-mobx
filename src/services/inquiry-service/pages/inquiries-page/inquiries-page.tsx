@@ -25,8 +25,9 @@ export const InquiriesPage = observer(() => {
     return (
       <Button
         startIcon={<AddIcon />}
-        variant={'contained'}
         onClick={() => navigate(`${URL_PATHS.INQUIRIES}/${URL_PATHS.NEW}`)}
+        size={'small'}
+        variant={'outlined'}
       >
         Новая справка
       </Button>

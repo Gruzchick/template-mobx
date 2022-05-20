@@ -1,6 +1,6 @@
 import MobxReactFormDevTools from 'mobx-react-form-devtools';
 import { observer } from 'mobx-react-lite';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { AppLayoutContent } from 'common/components/app-layout';
 import { FormProvider } from 'common/components/form-provider';
@@ -11,21 +11,21 @@ import { InquiryFormView } from './components/inquiry-form-view';
 import { BREADCRUMBS_CONFIG } from './constants';
 import { InquiryFormPageStore } from './store/inquiry-form-page-store';
 
-const pageStore = new InquiryFormPageStore();
-
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
-MobxReactFormDevTools.register({
-  [pageStore.form.name]: pageStore.form,
-});
-
 export const InquiryFormPage = observer(() => {
+  const [pageStore] = useState<InquiryFormPageStore>(() => new InquiryFormPageStore());
+
   const { organizationsFetching, commissionAccountsFetching } = pageStore;
 
   const { form } = pageStore;
 
   useEffect(() => {
     void pageStore.init();
-  }, []);
+
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
+    MobxReactFormDevTools.register({
+      [form.name]: form,
+    });
+  }, [form, pageStore]);
 
   useGlobalLoader(organizationsFetching || commissionAccountsFetching);
 
