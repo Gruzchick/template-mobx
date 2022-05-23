@@ -5,14 +5,17 @@ import * as yup from 'yup';
 import { BINDING_NAMES, bindings } from 'common/components/binded-fields/bindings';
 import { yupPluginAdapter } from 'common/utils/form/yup-plugin';
 
-import { INQUIRY_FORM_FIELD_NAMES } from './constants';
-import type { InquiryFormPageStore } from './inquiry-form-page-store';
+import { INQUIRY_FORM_FIELD_NAMES } from '../../store/constants';
+import type { InquiryFormPageStore } from '../../store/inquiry-form-page-store';
 import { inquiryFormSchema } from './inquiry-form-schema';
 
 interface FormValues {
+  agree: boolean;
+  textField: string;
   organization: string;
   accounts: string;
   commissionAccounts: string;
+  date: Date;
 }
 
 export class InquiryFormStore extends Form<FormValues> {
@@ -52,6 +55,19 @@ export class InquiryFormStore extends Form<FormValues> {
     return {
       fields: [
         {
+          name: INQUIRY_FORM_FIELD_NAMES.AGREE,
+          label: 'Согласие',
+          bindings: BINDING_NAMES.CHECKBOX,
+          value: false,
+        },
+        {
+          name: INQUIRY_FORM_FIELD_NAMES.DATE,
+          label: 'Дата',
+          placeholder: 'Выберите дату',
+          bindings: BINDING_NAMES.DATE_PICKER,
+          value: '',
+        },
+        {
           name: INQUIRY_FORM_FIELD_NAMES.TEXT_FIELD,
           label: 'Счёт',
           placeholder: 'Выберите счёт',
@@ -72,8 +88,7 @@ export class InquiryFormStore extends Form<FormValues> {
               form.$(INQUIRY_FORM_FIELD_NAMES.ACCOUNTS).reset();
 
               if (f.value) {
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-                void form.pageStore.fetchAccounts(f.value);
+                void form.pageStore.fetchAccounts(f.value as string);
               }
             },
           },
@@ -82,6 +97,13 @@ export class InquiryFormStore extends Form<FormValues> {
           name: INQUIRY_FORM_FIELD_NAMES.ACCOUNTS,
           label: 'Счёт',
           placeholder: 'Выберите счёт',
+          bindings: BINDING_NAMES.SELECT_FIELD,
+          value: '',
+        },
+        {
+          name: INQUIRY_FORM_FIELD_NAMES.COMMISSION_ACCOUNTS,
+          label: 'Счёт для списания комиссии',
+          placeholder: 'Выберите счёт для списания комиссии',
           bindings: BINDING_NAMES.SELECT_FIELD,
           value: '',
         },

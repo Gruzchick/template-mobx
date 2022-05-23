@@ -8,7 +8,7 @@ import type { IOrganization } from 'common/types/models/organization';
 import { inquiryServiceApi } from 'services/inquiry-service/api/inquiry-service-api';
 import type { ICommissionAccountsResponseDto } from 'services/inquiry-service/types/dtos/commission-accounts-response-dto';
 
-import { InquiryFormStore } from './inquiry-form-store';
+import { InquiryFormStore } from '../components/inquiry-form-view';
 
 export class InquiryFormPageStore {
   form: InquiryFormStore;

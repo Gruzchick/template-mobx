@@ -1,1 +1,1 @@
-export { InquiryFormStore } from './inquiry-form-store';
+export { InquiryFormStore } from '../components/inquiry-form-view';
