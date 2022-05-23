@@ -23,4 +23,4 @@ export const StatisticPage = observer(() => {
   );
 });
 
-StatisticPage.displayName = 'StubServicePage';
+StatisticPage.displayName = 'StatisticPage';

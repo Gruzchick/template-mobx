@@ -23,9 +23,7 @@ export const textFieldBinding = ({ field, props }: BindingArguments<TextFieldPro
     /* eslint-enable @typescript-eslint/no-unsafe-assignment */
   };
 
-  const template: TextFieldProps = merge(typedProps, props);
-
-  return template;
+  return merge(typedProps, props);
 };
 
 export type TextFieldBindingReturn = ReturnType<typeof textFieldBinding>;

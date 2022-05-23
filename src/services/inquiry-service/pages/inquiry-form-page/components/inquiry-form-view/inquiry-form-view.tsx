@@ -5,8 +5,10 @@ import React, { useMemo } from 'react';
 import { Grid } from '@mui/material';
 import Button from '@mui/material/Button';
 
-import { BindedSelect } from 'common/components/binded-fields/select';
-import { BindedTextField } from 'common/components/binded-fields/text-field';
+import { BindedCheckbox } from 'common/components/binded-fields/binded-checkbox';
+import { BindedDatePicker } from 'common/components/binded-fields/binded-date-picker';
+import { BindedSelect } from 'common/components/binded-fields/binded-select';
+import { BindedTextField } from 'common/components/binded-fields/binded-text-field';
 
 import { INQUIRY_FORM_FIELD_NAMES } from '../../store/constants';
 import type { InquiryFormPageStore } from '../../store/inquiry-form-page-store';
@@ -34,6 +36,16 @@ export const InquiryFormView: FC<InquiryFormViewProps> = observer(({ pageStore }
 
   return (
     <S.Wrapper>
+      <S.FormRow container>
+        <Grid item md={6}>
+          <BindedCheckbox name={INQUIRY_FORM_FIELD_NAMES.AGREE} />
+        </Grid>
+      </S.FormRow>
+      <S.FormRow container>
+        <Grid item md={6}>
+          <BindedDatePicker name={INQUIRY_FORM_FIELD_NAMES.DATE} />
+        </Grid>
+      </S.FormRow>
       <S.FormRow container>
         <Grid item md={6}>
           <BindedTextField name={INQUIRY_FORM_FIELD_NAMES.TEXT_FIELD} />

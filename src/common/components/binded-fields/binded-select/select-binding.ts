@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import type { ISelectProps } from 'common/components/fields/select';
 import type { BindingArguments } from 'common/types/form';
 
-import type { IBindedSelectProps } from './select';
+import type { IBindedSelectProps } from './binded-select';
 
 export const selectBinding = ({
   field,
