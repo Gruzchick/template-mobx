@@ -9,6 +9,7 @@ import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
 import { AppLayout } from 'common/components/app-layout';
+import { Dialogs } from 'common/components/diologs';
 import { GlobalLoader } from 'common/components/global-loader';
 import { useGlobalLoader } from 'common/components/global-loader/use-global-loader';
 import { AppBrowserRouter, history } from 'common/router';
@@ -37,6 +38,7 @@ const App = observer(() => {
             </Routes>
           </AppLayout>
         )}
+        <Dialogs />
         <GlobalLoader />
       </ThemeProvider>
     </AppBrowserRouter>

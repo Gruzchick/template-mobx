@@ -1,6 +1,7 @@
 {
   "extends": "./configs/typescript/tsconfig.json",
   "compilerOptions": {
-
+    "strict": false,
+    "strictNullChecks": true
   }
 }
