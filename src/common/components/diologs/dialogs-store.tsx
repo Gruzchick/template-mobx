@@ -18,10 +18,18 @@ import type {
 export class DialogsStore {
   modals: IObservableArray<IDialogConfig<BaseModalContentComponent>> = observable<
     IDialogConfig<BaseModalContentComponent>
-  >([]);
+  >([], {
+    deep: false,
+  });
 
   constructor() {
-    makeAutoObservable(this, { showDialog: action, showMessage: action, closeModal: action });
+    makeAutoObservable(this, {
+      showDialog: action,
+      closeModal: action,
+      showError: action,
+      showConfirm: action,
+      showSuccess: action,
+    });
   }
 
   showDialog<C extends BaseModalContentComponent>({
@@ -53,11 +61,7 @@ export class DialogsStore {
     const modalToClose = this.modals.find((item) => item.modalId === modalId);
 
     if (modalToClose) {
-      modalToClose.open = false;
-
-      // При open = false компонент сразу не размонтируется,
-      // чтобы дать доработать анимации, если такая есть.
-      setTimeout(() => this.modals.remove(modalToClose), 1000);
+      this.modals.remove(modalToClose);
     }
   }
 
@@ -85,13 +89,19 @@ export class DialogsStore {
     return this.showMessage({ type: MESSAGE_DIALOGS_TYPES.SUCCESS, message, ...contentProps });
   }
 
-  showConfirm(contentProps?: GetContentProps<IConfirmationDialogProps>) {
+  showConfirm(
+    message?: string,
+    contentProps?: Omit<GetContentProps<IConfirmationDialogProps>, 'message'>,
+  ) {
     return this.showDialog({
       content: ConfirmationDialog,
       muiDialogProps: {
         fullWidth: true,
       },
-      contentProps,
+      contentProps: {
+        message,
+        ...contentProps,
+      },
     });
   }
 }

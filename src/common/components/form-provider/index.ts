@@ -1,1 +1,1 @@
-export { FormProvider } from './form-provider';
+export * from './form-provider';

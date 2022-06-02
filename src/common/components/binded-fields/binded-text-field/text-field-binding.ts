@@ -8,14 +8,14 @@ export const textFieldBinding = ({ field, props }: BindingArguments<TextFieldPro
   const typedProps: TextFieldProps = {
     /* eslint-disable @typescript-eslint/no-unsafe-assignment */
     id: field.id,
-    name: field.name,
+    name: field.name as string,
     type: field.type,
     value: field.value,
     label: field.label,
     helperText: field.error,
     placeholder: field.placeholder,
     disabled: field.disabled,
-    error: field.hasError,
+    error: Boolean(field.error),
     onChange: field.onChange,
     onBlur: field.onBlur,
     onFocus: field.onFocus,

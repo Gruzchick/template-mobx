@@ -1,1 +1,1 @@
-export { TopLine } from './top-line';
+export * from './top-line';

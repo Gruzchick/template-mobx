@@ -1,14 +1,19 @@
 import { accounts } from 'common/mock/accounts';
+import type { IServerResponse } from 'common/types/api';
+import type { IGetAccountsByOrgIdRequestDto } from 'common/types/dtos';
 import type { IAccount } from 'common/types/models/account';
 
 export const accountsApi = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  fetchAccountsByOrgId: ({ id }: { id: string }): Promise<Array<IAccount>> => {
+  getAccountsByOrgId: ({
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    orgId,
+  }: IGetAccountsByOrgIdRequestDto): Promise<IServerResponse<Array<IAccount>>> => {
     return new Promise((resolve) => {
-      // TODO: add types for response, add errors
       setTimeout(() => {
-        resolve(accounts);
-      }, 2000);
+        resolve({
+          data: accounts,
+        });
+      }, 1500);
     });
   },
 };

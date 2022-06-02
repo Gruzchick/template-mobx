@@ -1,2 +1,2 @@
-export { AppBrowserRouter } from './browser-router';
-export { history } from './history';
+export * from './browser-router';
+export * from './history';

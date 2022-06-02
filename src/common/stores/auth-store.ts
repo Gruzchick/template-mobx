@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 
-import { userApi } from 'common/api/user-api';
+import { authApi } from 'common/api/auth-api';
+import { isErrorResponse } from 'common/types/api';
 
 interface IParsedToken {
   userId: string;
@@ -45,18 +46,18 @@ export class AuthStore {
   }
 
   get accessToken() {
-    return this._accessToken;
+    return this._accessToken ?? '';
   }
 
   logIn = async (data: { email: string; password: string }) => {
     this.tokensFetching = true;
-
-    const { refreshToken, accessToken } = await userApi.getTokens(data);
-
+    const resp = await authApi.getTokensByCredentials(data);
     this.tokensFetching = false;
 
-    this.accessToken = accessToken;
-    this.refreshToken = refreshToken;
+    if (!isErrorResponse(resp)) {
+      this.accessToken = resp.data.accessToken;
+      this.refreshToken = resp.data.refreshToken;
+    }
   };
 
   logOut = () => {

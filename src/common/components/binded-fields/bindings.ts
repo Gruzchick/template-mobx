@@ -1,7 +1,7 @@
-import { checkboxBinding } from './binded-checkbox/checkbox-binding';
-import { datePickerBinding } from './binded-date-picker/date-picker-binding';
-import { selectBinding } from './binded-select/select-binding';
-import { textFieldBinding } from './binded-text-field/text-field-binding';
+import { checkboxBinding } from './binded-checkbox';
+import { datePickerBinding } from './binded-date-picker';
+import { selectBinding } from './binded-select';
+import { textFieldBinding } from './binded-text-field';
 
 export enum BINDING_NAMES {
   TEXT_FIELD = 'textField',

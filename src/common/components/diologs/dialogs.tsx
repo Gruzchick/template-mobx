@@ -2,7 +2,7 @@ import { observer } from 'mobx-react';
 import type { FC } from 'react';
 import React, { useRef } from 'react';
 
-import { Dialog as MuiDialog, Modal } from '@mui/material';
+import { Dialog as MuiDialog } from '@mui/material';
 
 import type { BaseModalContentComponent, IDialogConfig } from 'common/components/diologs/types';
 

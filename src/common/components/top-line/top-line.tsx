@@ -2,8 +2,8 @@ import { observer } from 'mobx-react';
 import type { FC } from 'react';
 import React from 'react';
 
-import type { IBreadcrumbsProps } from 'common/components/breadcrumbs/breadcrumbs';
-import { Breadcrumbs } from 'common/components/breadcrumbs/breadcrumbs';
+import type { IBreadcrumbsProps } from 'common/components/breadcrumbs';
+import { Breadcrumbs } from 'common/components/breadcrumbs';
 
 import * as S from './styled';
 

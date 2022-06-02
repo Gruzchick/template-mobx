@@ -4,8 +4,8 @@ import React from 'react';
 
 import { Container } from '@mui/material';
 
-import { AppLayoutHeader } from '../app-layout-header';
-import { AppLayoutSidebarMenu } from '../app-layout-sidebar-menu';
+import { AppLayoutHeader } from 'common/components/app-layout-header';
+import { AppLayoutSidebarMenu } from 'common/components/app-layout-sidebar-menu';
 
 import * as S from './styled';
 

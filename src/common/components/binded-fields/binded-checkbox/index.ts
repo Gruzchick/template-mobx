@@ -1,2 +1,2 @@
-export { BindedCheckbox } from './binded-checkbox';
-export { checkboxBinding } from './checkbox-binding';
+export * from './binded-checkbox';
+export * from './checkbox-binding';

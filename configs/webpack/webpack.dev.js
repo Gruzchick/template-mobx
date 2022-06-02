@@ -32,7 +32,7 @@ const getDevConfig = () => {
     },
     resolve: {
       extensions: ['.js', '.ts', '.tsx', '.json'],
-      modules: ['src', 'node_modules'],
+      modules: ['src', 'src/services', 'node_modules'],
       alias: {
         'react-dom': '@hot-loader/react-dom',
       },

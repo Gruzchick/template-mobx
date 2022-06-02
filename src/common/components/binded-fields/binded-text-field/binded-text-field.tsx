@@ -9,7 +9,11 @@ import { FormContext } from 'common/components/form-provider/form-provider';
 
 import type { TextFieldBindingReturn } from './text-field-binding';
 
-export const BindedTextField: FC<TextFieldProps> = observer((props) => {
+type BindedTextFieldProps = TextFieldProps & {
+  name: string;
+};
+
+export const BindedTextField: FC<BindedTextFieldProps> = observer((props) => {
   const form = useContext(FormContext);
 
   return (
