@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-call,compat/compat,@typescript-eslint/no-unsafe-return,unicorn/no-null */
+/* eslint-disable */
 import _ from 'lodash';
 import type {
   ValidationPluginConstructor,
@@ -10,6 +10,7 @@ class YupPlugin implements ValidationPluginInterface {
 
   config = null;
 
+  // @ts-ignore: Этот код скопирован с небольшими изменениями из библиотеки react-mobx-form
   state = null;
 
   extend = null;
@@ -18,8 +19,11 @@ class YupPlugin implements ValidationPluginInterface {
 
   schema = null;
 
+  // @ts-ignore: Этот код скопирован с небольшими изменениями из библиотеки react-mobx-form
   constructor({ config = {}, state = null, promises = [] }: ValidationPluginConstructor) {
+    // @ts-ignore: Этот код скопирован с небольшими изменениями из библиотеки react-mobx-form
     this.state = state;
+    // @ts-ignore: Этот код скопирован с небольшими изменениями из библиотеки react-mobx-form
     this.promises = promises;
     this.extend = config.extend;
     this.validator = config.package || config;
@@ -30,8 +34,10 @@ class YupPlugin implements ValidationPluginInterface {
   extendValidator() {
     // extend using "extend" callback
     if (_.isFunction(this.extend)) {
+      // @ts-ignore: Этот код скопирован с небольшими изменениями из библиотеки react-mobx-form
       this.extend({
         validator: this.validator,
+        // @ts-ignore: Этот код скопирован с небольшими изменениями из библиотеки react-mobx-form
         form: this.state.form,
       });
     }
@@ -39,17 +45,20 @@ class YupPlugin implements ValidationPluginInterface {
 
   validate(field) {
     const $p = new Promise((resolve) =>
+      // @ts-ignore: Этот код скопирован с небольшими изменениями из библиотеки react-mobx-form
       this.validator
         .reach(this.schema, field.path)
         .label(field.label)
         .validate(field.validatedValue, {
           strict: true,
+          // @ts-ignore: Этот код скопирован с небольшими изменениями из библиотеки react-mobx-form
           context: { values: this.state.form.values(), form: this.state.form },
         })
         .then(() => this.handleAsyncPasses(field, resolve))
         .catch((error) => this.handleAsyncFails(field, resolve, error)),
     );
 
+    // @ts-ignore: Этот код скопирован с небольшими изменениями из библиотеки react-mobx-form
     this.promises.push($p);
   }
 
@@ -77,3 +86,4 @@ export const yupPluginAdapter = (config?: any) => ({
   class: YupPlugin,
   config,
 });
+/* eslint-enable */

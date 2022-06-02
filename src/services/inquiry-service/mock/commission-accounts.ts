@@ -1,6 +1,6 @@
-import type { ICommissionAccountsResponseDto } from '../types/dtos/commission-accounts-response-dto';
+import type { IGetCommissionAccountsResponseDto } from '../types/dto';
 
-export const commissionAccounts: Array<ICommissionAccountsResponseDto> = [
+export const commissionAccounts: Array<IGetCommissionAccountsResponseDto> = [
   {
     id: 'f3c9c5cc978344e8b7abc67f82c41fe0',
     balance: '100.00',

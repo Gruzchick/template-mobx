@@ -10,6 +10,7 @@ module.exports = {
           ['^@mui'],
           ['^common'],
           ['^services'],
+          ['^inquiry-service'],
           ['^\\.'],
           ['\\.scss$'],
           ['^\\./styled$'],

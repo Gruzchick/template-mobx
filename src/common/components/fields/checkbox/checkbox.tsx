@@ -6,7 +6,7 @@ import type { CheckboxProps, FormControlLabelProps } from '@mui/material';
 import { Checkbox as MuiCheckbox, FormControlLabel } from '@mui/material';
 
 export interface ICheckboxProps {
-  formControlLabelProps?: Omit<FormControlLabelProps, 'control'>;
+  formControlLabelProps: Omit<FormControlLabelProps, 'control'>;
   checkbox?: CheckboxProps;
 }
 

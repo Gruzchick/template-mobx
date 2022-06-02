@@ -2,6 +2,11 @@
   "extends": "./configs/typescript/tsconfig.json",
   "compilerOptions": {
     "strict": false,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": ["src/*"],
+      "inquiry-service/*": ["src/services/inquiry-service/*"]
+    }
   }
 }

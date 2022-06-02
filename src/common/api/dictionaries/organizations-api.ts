@@ -1,12 +1,14 @@
 import { organizations } from 'common/mock/organizations';
+import type { IServerResponse } from 'common/types/api';
 import type { IOrganization } from 'common/types/models/organization';
 
 export const organizationsApi = {
-  fetchOrganizations: (): Promise<Array<IOrganization>> => {
+  getOrganizations: (): Promise<IServerResponse<Array<IOrganization>>> => {
     return new Promise((resolve) => {
-      // TODO: add types for response, add errors
       setTimeout(() => {
-        resolve(organizations);
+        resolve({
+          data: organizations,
+        });
       }, 1000);
     });
   },

@@ -24,11 +24,12 @@ export const datePickerBinding = ({
       disabled: field.disabled,
     },
     textFieldProps: {
-      error: field.hasError,
+      error: Boolean(field.error),
       label: field.label,
       helperText: field.error,
       placeholder: field.placeholder,
       onFocus: field.onFocus,
+      onBlur: field.onBlur,
       inputProps: {
         placeholder: field.placeholder,
       },
@@ -39,7 +40,7 @@ export const datePickerBinding = ({
     // name: field.name,
     // type: field.type,
     // label: field.label,
-    // onBlur: field.onBlur,
+    //
     //
     // autoFocus: field.autoFocus,
     /* eslint-enable @typescript-eslint/no-unsafe-assignment */

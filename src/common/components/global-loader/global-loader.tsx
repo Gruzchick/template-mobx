@@ -4,12 +4,12 @@ import React from 'react';
 
 import { CircularProgress } from '@mui/material';
 
-import { globalLoaderStore } from './global-loader-store';
+import { loaderStore } from './loader-store';
 
 import * as S from './styled';
 
 export const GlobalLoader: FC = observer(() => {
-  const { isLoading } = globalLoaderStore;
+  const { isLoading } = loaderStore;
 
   return (
     <S.Backdrop open={isLoading}>

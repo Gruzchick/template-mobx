@@ -11,7 +11,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { AppLayout } from 'common/components/app-layout';
 import { Dialogs } from 'common/components/diologs';
 import { GlobalLoader } from 'common/components/global-loader';
-import { useGlobalLoader } from 'common/components/global-loader/use-global-loader';
+import { useLoader } from 'common/components/global-loader/use-loader';
 import { AppBrowserRouter, history } from 'common/router';
 import { authStore } from 'common/stores/auth-store';
 import { theme } from 'common/styles/theme';
@@ -21,7 +21,7 @@ import { mainServiceRoutes } from 'services/main-page-service/main-service-route
 import { statisticsServiceRoutes } from 'services/statistics-service/statistics-service-routes';
 
 const App = observer(() => {
-  useGlobalLoader(authStore.tokensFetching);
+  useLoader(authStore.tokensFetching);
 
   useEffect(() => {
     void authStore.logIn({ email: '', password: '' }); // TODO: Сделать страницу авторизации

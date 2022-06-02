@@ -24,10 +24,6 @@
       "@testing-library/jest-dom",
       "@types/webpack-env",
       "@emotion/react/types/css-prop"
-    ],
-    "baseUrl": "./../../",
-    "paths": {
-      "*": ["src/*"]
-    }
+    ]
   }
 }

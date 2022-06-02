@@ -12,7 +12,7 @@ export const selectBinding = ({
   const typedProps: ISelectProps = {
     /* eslint-disable @typescript-eslint/no-unsafe-assignment */
     formControlProps: {
-      error: field.hasError,
+      error: Boolean(field.error),
       disabled: field.disabled,
     },
     inputLabelProps: {
