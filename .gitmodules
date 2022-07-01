@@ -1,0 +1,3 @@
+[submodule "web-components"]
+	path = web-components
+	url = git@github.com:Gruzchick/web-components.git
