@@ -24,7 +24,7 @@
     "./src/**/*.{ts,tsx}": [
       "stylelint",
       "eslint --config ./.eslintrc.js",
-      "prettier --config ./.prettierrc --ignore-path ./.prettierignore --check"
+      "prettier --config ./.prettierrc.js --ignore-path ./.prettierignore --check"
     ]
   },
   "husky": {
