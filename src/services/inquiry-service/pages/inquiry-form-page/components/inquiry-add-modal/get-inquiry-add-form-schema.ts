@@ -63,7 +63,7 @@ export const getInquiryAddFormSchema = (inquiryType: INQUIRY_TYPES) => {
             value > values.dateTo
           ) {
             return testContext.createError({
-              message: 'Значение должно быть больше значения "За период по"',
+              message: 'Значение должно быть меньше значения "За период по"',
             });
           }
 
@@ -84,7 +84,7 @@ export const getInquiryAddFormSchema = (inquiryType: INQUIRY_TYPES) => {
             value < values.dateFrom
           ) {
             return testContext.createError({
-              message: 'Значение должно быть меньше значения "За период с"',
+              message: 'Значение должно быть больше значения "За период с"',
             });
           }
 
